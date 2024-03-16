@@ -7,12 +7,11 @@ const kafka = new Kafka({
 
 const topicName = "orderCreated";
 
-const msg = JSON.stringify({ customerId: 1, orderId: 1 });
 const processProducer = async () => {
   const producer = kafka.producer();
   await producer.connect();
-  for (let i = 0; i < 3; i++) {
-    // partitions chosen will be determined by default (round robin by Kafka)
+  for (let i = 1; i < 6; i++) {
+    let msg = JSON.stringify({ customerId: "SHOP-" + i, orderId: i });
     await producer.send({
       topic: topicName,
       messages: [{ value: msg }],
@@ -21,6 +20,6 @@ const processProducer = async () => {
 };
 
 processProducer().then(() => {
-  console.log("done");
+  console.log("done processing orders");
   process.exit();
 });
