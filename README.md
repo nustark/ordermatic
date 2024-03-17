@@ -7,8 +7,9 @@ e-commerce order processing: C# with ASP.NET Core:
 * switching to Node.js and Express
 
 #### implementation details
-* message order is only maintained within a partition so with default partitioning (round robin/spraying) and 2 partitions, overall order of messages is not maitained but order within partition is
+* message order is only maintained within a partition so with default partitioning (round robin/spraying) and 2 partitions, overall order of messages is not maintained but order within partition is
   * **TODO**: hashing key or some custom partitioner
+* **TODO**: move services to different containers for use in production
 
 #### setup
 1. `docker-compose up`
