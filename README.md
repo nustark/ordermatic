@@ -8,7 +8,7 @@ e-commerce order processing: C# with ASP.NET Core:
 
 #### implementation details
 * message order is only maintained within a partition so with default partitioning (round robin/spraying) and 2 partitions, overall order of messages is not maitained but order within partition is
-  * todo: hashing key or some custom partitioner
+  * **TODO**: hashing key or some custom partitioner
 
 #### setup
 1. `docker-compose up`
